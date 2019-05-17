@@ -29,6 +29,9 @@ class DataSearch extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
+    
+    Future.delayed(Duration.zero).then((_)=>close(context, query));
+    
     return Container();
   }
 
@@ -51,7 +54,7 @@ class DataSearch extends SearchDelegate<String> {
                   title: Text(snapshot.data[index]),
                   leading: Icon(Icons.play_arrow),
                   onTap: () {
-                    print(snapshot.data[index]);
+                    close(context, snapshot.data[index]);
                   },
                 );
               },
