@@ -3,6 +3,7 @@ import 'package:fkuttertube/blocs/favorite_bloc.dart';
 import 'package:fkuttertube/blocs/videos_bloc.dart';
 import 'package:fkuttertube/delegates/data_search.dart';
 import 'package:fkuttertube/models/videos.dart';
+import 'package:fkuttertube/screens/favorites.dart';
 import 'package:fkuttertube/widgets/video_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,10 @@ class Home extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.star),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Favorites() ));
+            },
           ),
           IconButton(
             icon: Icon(Icons.search),

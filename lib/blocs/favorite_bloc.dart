@@ -2,11 +2,13 @@ import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:fkuttertube/models/videos.dart';
 import 'dart:async';
 
+import 'package:rxdart/rxdart.dart';
+
 class FavoriteBloc implements BlocBase {
 
   Map<String, Video> _favorites = {};
 
-  final StreamController<Map<String, Video>> _favController = StreamController<Map<String, Video>>.broadcast();
+  final _favController = BehaviorSubject<Map<String, Video>>(seedValue: {});
   Stream<Map<String, Video>> get outFav => _favController.stream;
 
   void toggleFavorite(Video video){
